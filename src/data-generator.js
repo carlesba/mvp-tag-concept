@@ -1,5 +1,5 @@
-const NUMBER_OF_ELEMENTS = 10
-const LETTERS = 'abcdefghijklmnopqrstuvwxz'
+const VOWELS = 'aeiou'
+const CONSONANT = 'bcdfghjklmnpqrstvwz'
 
 const createFilledArray = (length) => {
   return Array.apply(null, Array(length)).map(Number.prototype.valueOf, 0)
@@ -9,8 +9,10 @@ const randomNum = (order) => Math.floor(Math.random() * order)
 
 const randomWord = () => {
   const titleLength = randomNum(10) + 3
-  const word = createFilledArray(titleLength).reduce((acc) => {
-    const letter = LETTERS.charAt(randomNum(LETTERS.length))
+  const word = createFilledArray(titleLength).reduce((acc, x, i) => {
+    const letter = i % 2
+      ? VOWELS.charAt(randomNum(VOWELS.length))
+      : CONSONANT.charAt(randomNum(CONSONANT.length))
     return acc + letter
   }, '')
   return word
@@ -32,9 +34,10 @@ const generateDate = () => {
   const now = Date.now()
   return new Date(now - randomNum(now))
 }
-const generateResults = () => randomNum(1000)
+const generateResults = () => randomNum(300)
 
-export default createFilledArray(NUMBER_OF_ELEMENTS)
+const fakeDataGenerator = (length) => {
+  return createFilledArray(length)
   .map((a, index) => {
     return {
       id: index,
@@ -45,3 +48,6 @@ export default createFilledArray(NUMBER_OF_ELEMENTS)
       results: generateResults()
     }
   })
+}
+
+export default fakeDataGenerator
