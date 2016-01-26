@@ -1,13 +1,17 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
+import {Provider} from 'react-redux'
+import {createStore} from 'redux'
+import reducers from './reducers'
 import App from './components/app'
-import dataGenerator from './data-generator'
 
 require('./styles/main.sass')
 
-const fakeForms = dataGenerator(100)
-console.log('fakeForms', fakeForms)
+const store = createStore(reducers)
+
 ReactDOM.render(
-  <App forms={fakeForms}/>,
+  <Provider store={store}>
+    <App />
+  </Provider>,
   document.getElementById('root')
 )

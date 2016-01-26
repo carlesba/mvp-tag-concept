@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import {connect} from 'react-redux'
 
 class FormsGallery extends Component {
   render () {
@@ -26,5 +27,8 @@ class FormsGalleryItem extends Component {
     )
   }
 }
+function mapStateToProps ({forms}) {
+  return {forms}
+}
 
-export default FormsGallery
+export default connect(mapStateToProps)(FormsGallery)

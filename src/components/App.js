@@ -4,11 +4,10 @@ import FormsGallery from './FormsGallery'
 
 const App = React.createClass({
   render () {
-    console.table(this.props.forms)
     return (
       <div className='o-centerer-wrapper'>
         <SearchBox />
-        <FormsGallery forms={this.props.forms} />
+        <FormsGallery />
       </div>
     )
   }
