@@ -5,9 +5,9 @@ import dataGenerator from './data-generator'
 
 require('./styles/main.sass')
 
-const fakeData = dataGenerator(100)
-console.log('fakeData', fakeData)
+const fakeForms = dataGenerator(100)
+console.log('fakeForms', fakeForms)
 ReactDOM.render(
-  <App data={fakeData}/>,
+  <App forms={fakeForms}/>,
   document.getElementById('root')
 )
