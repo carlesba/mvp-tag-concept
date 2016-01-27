@@ -3,7 +3,7 @@ import {
   ADD_FILTER,
   REMOVE_FILTER
 } from '../actions'
-import filterReducer from './filterReducer'
+import addFilterReducer from './addFilterReducer'
 import searcherReducer from './searcherReducer'
 import removeFilterReducer from './removeFilterReducer'
 import dataGenerator from '../data-generator'
@@ -26,7 +26,7 @@ const reducers = (state = defaultData, action) => {
     case UPDATE_SEARCHER:
       return searcherReducer(state, action)
     case ADD_FILTER:
-      return filterReducer(state, action)
+      return addFilterReducer(state, action)
     case REMOVE_FILTER:
       return removeFilterReducer(state, action)
     default:

@@ -1,4 +1,4 @@
-export default function filterReducer (state, action) {
+export default function addFilterReducer (state, action) {
   return Object.assign({}, state, {
     searcher: '',
     suggestions: {tags: [], people: []},
