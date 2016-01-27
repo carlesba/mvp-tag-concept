@@ -37,17 +37,21 @@ const generateDate = () => {
 const generateResults = () => randomNum(300)
 
 const fakeDataGenerator = (length) => {
-  return createFilledArray(length)
-  .map((a, index) => {
-    return {
-      id: index,
-      title: generateTitle(),
-      tags: generateTags(),
-      people: generatePeople(),
-      date: generateDate(),
-      results: generateResults()
-    }
-  })
+  return {
+    forms: createFilledArray(length)
+      .map((a, index) => {
+        return {
+          id: index,
+          title: generateTitle(),
+          tags: generateTags(),
+          people: generatePeople(),
+          date: generateDate(),
+          results: generateResults()
+        }
+      }),
+    tags: TAGS,
+    people: PEOPLE
+  }
 }
 
 export default fakeDataGenerator
