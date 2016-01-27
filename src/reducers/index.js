@@ -1,15 +1,20 @@
 import {
   UPDATE_SEARCHER,
-  ADD_FILTER
+  ADD_FILTER,
+  REMOVE_FILTER
 } from '../actions'
 import filterReducer from './filterReducer'
 import searcherReducer from './searcherReducer'
+import removeFilterReducer from './removeFilterReducer'
 import dataGenerator from '../data-generator'
 const {forms, tags, people} = dataGenerator(100)
 
 const defaultData = {
   searcher: '',
-  suggestions: {},
+  suggestions: {
+    tags: [],
+    people: []
+  },
   filters: [],
   forms,
   tags,
@@ -22,6 +27,8 @@ const reducers = (state = defaultData, action) => {
       return searcherReducer(state, action)
     case ADD_FILTER:
       return filterReducer(state, action)
+    case REMOVE_FILTER:
+      return removeFilterReducer(state, action)
     default:
       return state
   }

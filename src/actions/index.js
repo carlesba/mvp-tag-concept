@@ -14,3 +14,12 @@ export function addFilter () {
     type: ADD_FILTER
   }
 }
+
+export const REMOVE_FILTER = 'REMOVE_FILTER'
+
+export function removeFilter (filter) {
+  return {
+    type: REMOVE_FILTER,
+    filter: filter
+  }
+}

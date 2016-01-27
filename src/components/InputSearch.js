@@ -1,4 +1,5 @@
 import React, {Component} from 'react'
+import FiltersBox from './FiltersBox'
 import {connect} from 'react-redux'
 import {updateSearcher, addFilter} from '../actions'
 
@@ -6,12 +7,13 @@ class InputSearch extends Component {
   render () {
     const {updateSearcher, searcher, addFilter} = this.props
     return (
-      <form className='' onSubmit={(evt) => {
+      <form className='o-hlist' onSubmit={(evt) => {
         evt.preventDefault()
         addFilter()
       }}>
+        <FiltersBox />
         <input
-          className='c-input-search__input' type='text'
+          className='o-hlist__fluid c-input-search__input' type='text'
           onChange={(evt) => updateSearcher(evt.target.value)}
           value={searcher}
         />
