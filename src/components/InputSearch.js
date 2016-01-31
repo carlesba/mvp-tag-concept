@@ -11,7 +11,9 @@ class InputSearch extends Component {
         evt.preventDefault()
         addFilter(searcher)
       }}>
-        <FiltersBox filters={filters} removeFilter={removeFilter} />
+        <div className='o-hlist__fixed'>
+          <FiltersBox filters={filters} removeFilter={removeFilter} />
+        </div>
         <input
           className='o-hlist__fluid c-input-search__input' type='text'
           ref={(node) => this.input = node}

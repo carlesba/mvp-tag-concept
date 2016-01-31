@@ -5,7 +5,7 @@ class FiltersBox extends Component {
   render () {
     const {filters, removeFilter} = this.props
     return (
-      <ul className='o-hlist'>
+      <ul className='o-hlist c-filter-group'>
         {filters.map((f, i) => <FilterLabel key={f} filter={f} action={removeFilter}/>)}
       </ul>
     )
