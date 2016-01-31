@@ -9,9 +9,14 @@ require('./styles/main.sass')
 
 const store = createStore(reducers)
 
+const root = document.createElement('div')
+root.id = 'root'
+root.classList.add('o-full-screen')
+document.body.appendChild(root)
+
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  root
 )
