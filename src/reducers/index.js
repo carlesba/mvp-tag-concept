@@ -16,11 +16,12 @@ const defaultData = {
     people: []
   },
   filters: [],
+  filteredForms: [],
   forms,
   tags,
   people
 }
-console.log(defaultData)
+console.log('defaultData', defaultData)
 const reducers = (state = defaultData, action) => {
   switch (action.type) {
     case UPDATE_SEARCHER:

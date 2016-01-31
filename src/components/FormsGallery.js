@@ -27,7 +27,8 @@ class FormsGalleryItem extends Component {
     )
   }
 }
-function mapStateToProps ({forms}) {
+function mapStateToProps ({forms, filteredForms}) {
+  console.log('filteredForms', filteredForms)
   return {forms}
 }
 
