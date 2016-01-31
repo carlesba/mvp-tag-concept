@@ -9,7 +9,9 @@ class FormsGallery extends Component {
         component='div'
         className='o-gallery'
         transitionName='a-fade'
-        transitionAppearTimeout={900}
+        transitionAppearTimeout={500}
+        transitionEnterTimeout={500}
+        transitionLeaveTimeout={500}
       >
         {this.renderItems()}
       </ReactCSSTransitionGroup>
@@ -38,11 +40,13 @@ FormsGallery.propTypes = {
 
 class FormsGalleryItem extends Component {
   render () {
-    const {title} = this.props.form
+    const {title, tags, people} = this.props.form
     return (
       <div className='o-gallery__item c-thumbnail'>
         <div className='o-vgrid o-vgrid--centered'>
-          <div className='o-corner-tl'>aaa</div>
+          <div className='o-corner-tl'>
+            <FormItemTags tags={tags} people={people} />
+          </div>
           <div className=''>
             {title}
           </div>
@@ -50,6 +54,28 @@ class FormsGalleryItem extends Component {
       </div>
     )
   }
+}
+const FormItemTags = ({tags, people}) => {
+  return (
+    <div className='o-wrapper'>
+      <div className='o-overlapped-list'>
+        {tags.map(tag =>
+            <div
+            key={tag}
+            className='o-overlapped-list__item c-thumbnail__tag c-thumbnail__tag--label'
+            />
+        )}
+      </div>
+      <div className='o-overlapped-list'>
+        {people.map(person =>
+            <div
+            key={person}
+            className='o-overlapped-list__item c-thumbnail__tag c-thumbnail__tag--people'
+            />
+        )}
+      </div>
+    </div>
+  )
 }
 function mapStateToProps ({forms, filteredForms}) {
   return {forms, filteredForms}
