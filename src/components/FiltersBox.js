@@ -1,4 +1,5 @@
 import React, {Component, PropTypes} from 'react'
+import classname from 'classname'
 
 class FiltersBox extends Component {
   render () {
@@ -15,12 +16,20 @@ FiltersBox.propTypes = {
   removeFilter: PropTypes.func
 }
 const FilterLabel = ({filter, action}) => {
+  const firstChar = filter.charAt(0)
+  const classes = classname('c-filter-label', {
+    'c-filter-label--people': firstChar === '@',
+    'c-filter-label--tag': firstChar === '#'
+  })
+  const title = firstChar === '@' || firstChar === '#'
+    ? filter.substring(1)
+    : filter
   return (
     <li
       key={filter}
-      className='c-filter-label'
+      className={classes}
       onClick={() => action(filter)} >
-      {filter}
+      {title}
     </li>
   )
 }
