@@ -9,7 +9,7 @@ class InputSearch extends Component {
     return (
       <form className='o-hlist' onSubmit={(evt) => {
         evt.preventDefault()
-        addFilter()
+        addFilter(searcher)
       }}>
         <FiltersBox />
         <input
