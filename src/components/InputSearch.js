@@ -7,7 +7,7 @@ class InputSearch extends Component {
   render () {
     const {updateSearcher, searcher, addFilter, removeFilter, filters} = this.props
     return (
-      <form className='o-hlist' onSubmit={(evt) => {
+      <form className='o-hlist c-search-box' onSubmit={(evt) => {
         evt.preventDefault()
         addFilter(searcher)
       }}>

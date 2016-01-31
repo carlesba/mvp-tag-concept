@@ -5,7 +5,7 @@ import SuggestionsBox from './SuggestionsBox'
 class SearchBox extends Component {
   render () {
     return (
-      <div className='c-search-box'>
+      <div>
         <InputSearch />
         <SuggestionsBox />
       </div>

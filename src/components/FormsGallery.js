@@ -1,12 +1,18 @@
 import React, {PropTypes, Component} from 'react'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {connect} from 'react-redux'
 
 class FormsGallery extends Component {
   render () {
     return (
-      <div className='o-gallery'>
+      <ReactCSSTransitionGroup
+        component='div'
+        className='o-gallery'
+        transitionName='a-fade'
+        transitionAppearTimeout={900}
+      >
         {this.renderItems()}
-      </div>
+      </ReactCSSTransitionGroup>
     )
   }
   get filteredItems () {
