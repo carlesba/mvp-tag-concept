@@ -1,7 +1,7 @@
 import formsFilterer from './formsFilterer'
 
 export default function addFilterReducer (state, action) {
-  const newFilters = [action.filter, ...state.filters]
+  const newFilters = [...state.filters, action.filter]
   return Object.assign({}, state, {
     searcher: '',
     suggestions: {tags: [], people: []},

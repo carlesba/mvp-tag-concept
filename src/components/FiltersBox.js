@@ -1,6 +1,4 @@
 import React, {Component, PropTypes} from 'react'
-import {removeFilter} from '../actions'
-import {connect} from 'react-redux'
 
 class FiltersBox extends Component {
   render () {
@@ -26,9 +24,5 @@ const FilterLabel = ({filter, action}) => {
     </li>
   )
 }
-function mapStateToProps (state) {
-  return {
-    filters: state.filters
-  }
-}
-export default connect(mapStateToProps, {removeFilter})(FiltersBox)
+
+export default FiltersBox
