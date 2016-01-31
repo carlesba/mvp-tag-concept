@@ -1,15 +1,33 @@
-import React, {Component} from 'react'
+import React, {PropTypes, Component} from 'react'
 import {connect} from 'react-redux'
 
 class FormsGallery extends Component {
   render () {
-    const {forms} = this.props
     return (
       <div className='o-gallery'>
-        {forms.map((form) => <FormsGalleryItem key={form.id} form={form} />)}
+        {this.renderItems()}
       </div>
     )
   }
+  get filteredItems () {
+    const {forms, filteredForms} = this.props
+    if (filteredForms.length) {
+      return filteredForms.map(formId => {
+        return forms.find(({id}) => formId === id)
+      })
+    } else {
+      return forms
+    }
+  }
+  renderItems (forms) {
+    return this.filteredItems.map((form) =>
+      <FormsGalleryItem key={form.id} form={form} />
+    )
+  }
+}
+FormsGallery.propTypes = {
+  forms: PropTypes.array,
+  filteredForms: PropTypes.array
 }
 
 class FormsGalleryItem extends Component {
@@ -28,8 +46,7 @@ class FormsGalleryItem extends Component {
   }
 }
 function mapStateToProps ({forms, filteredForms}) {
-  console.log('filteredForms', filteredForms)
-  return {forms}
+  return {forms, filteredForms}
 }
 
 export default connect(mapStateToProps)(FormsGallery)

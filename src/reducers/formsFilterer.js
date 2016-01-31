@@ -8,7 +8,7 @@ const getFilter = (condition) => {
   const identifier = condition.charAt(0)
   if (identifier === '@') return getFiltererByField('people', condition.substring(1))
   if (identifier === '#') return getFiltererByField('tags', condition.substring(1))
-  return getFiltererByField('title', condition)
+  return (form) => condition.toLowerCase().indexOf(form.title.toLowerCase()) >= 0
 }
 
 const idPicker = (o) => o.id
