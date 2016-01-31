@@ -4,9 +4,8 @@ import {addFilter} from '../actions'
 
 class SuggestionsBox extends Component {
   render () {
-    const {addFilter, suggestions} = this.props
-    const {tags, people} = suggestions
-    const isEmpty = tags.length === 0 && people.length === 0
+    const {addFilter, suggestedTags, suggestedPeople} = this.props
+    const isEmpty = suggestedTags.length === 0 && suggestedPeople.length === 0
       ? ' is-empty'
       : ''
     return (
@@ -14,14 +13,14 @@ class SuggestionsBox extends Component {
         <SuggestionList
           key={'tags'}
           prefix='#'
-          list={tags}
+          list={suggestedTags}
           classes={'c-filter-label--tag'}
           actionClick={addFilter}
         />
         <SuggestionList
           key={'people'}
           prefix='@'
-          list={people}
+          list={suggestedPeople}
           classes={'c-filter-label--people'}
           actionClick={addFilter}
         />
@@ -29,11 +28,10 @@ class SuggestionsBox extends Component {
     )
   }
 }
-SuggestionsBox.defaultProps = {
-  suggestions: {}
-}
+
 SuggestionsBox.propTypes = {
-  suggestions: PropTypes.object,
+  suggestedTags: PropTypes.array,
+  suggestedPeople: PropTypes.array,
   addFilter: PropTypes.func
 }
 
@@ -60,9 +58,7 @@ const Suggestion = ({term, classes, prefix = '', actionClick}) => {
   )
 }
 
-function mapStateToProps (state) {
-  return {
-    suggestions: state.suggestions
-  }
+function mapStateToProps ({suggestedTags, suggestedPeople}) {
+  return { suggestedTags, suggestedPeople }
 }
 export default connect(mapStateToProps, {addFilter})(SuggestionsBox)

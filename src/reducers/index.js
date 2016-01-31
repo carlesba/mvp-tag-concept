@@ -11,10 +11,8 @@ const {forms, tags, people} = dataGenerator(100)
 
 const defaultData = {
   searcher: '',
-  suggestions: {
-    tags: [],
-    people: []
-  },
+  suggestedTags: [],
+  suggestedPeople: [],
   filters: [],
   filteredForms: [],
   forms,

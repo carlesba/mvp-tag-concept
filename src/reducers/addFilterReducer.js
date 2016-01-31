@@ -6,6 +6,8 @@ export default function addFilterReducer (state, action) {
     searcher: '',
     suggestions: {tags: [], people: []},
     filters: newFilters,
-    filteredForms: formsFilterer(state.forms, newFilters)
+    filteredForms: formsFilterer(state.forms, newFilters),
+    suggestedTags: [],
+    suggestedPeople: []
   })
 }

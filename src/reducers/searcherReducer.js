@@ -1,22 +1,21 @@
 export default function searcherReducer (state, action) {
   const {searcher} = action
   return Object.assign({}, state, {
-    searcher: searcher,
-    suggestions: findSuggestions(searcher, state)
-  })
+    searcher: searcher
+  }, findSuggestions(searcher, state))
 }
 
-const findSuggestions = (text, {people, tags}) => {
-  if (text.length === 0) return {tags: [], people: []}
+const findSuggestions = (text, {tags, people}) => {
+  if (text.length === 0) return {suggestedTags: [], suggestedPeople: []}
   if (text.charAt(0) === '#') {
-    return { tags: findIn(text.substring(1), tags), people: [] }
+    return { suggestedTags: findIn(text.substring(1), tags), suggestedPeople: [] }
   }
   if (text.charAt(0) === '@') {
-    return { tags: [], people: findIn(text.substring(1), people) }
+    return { suggestedTags: [], suggestedPeople: findIn(text.substring(1), people) }
   }
   return {
-    people: findIn(text, people),
-    tags: findIn(text, tags)
+    suggestedPeople: findIn(text, people),
+    suggestedTags: findIn(text, tags)
   }
 }
 
