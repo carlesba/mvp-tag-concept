@@ -14,9 +14,16 @@ class InputSearch extends Component {
         <FiltersBox filters={filters} removeFilter={removeFilter} />
         <input
           className='o-hlist__fluid c-input-search__input' type='text'
-          onKeyUp={(evt) => {
+          ref={(node) => this.input = node}
+          onKeyDown={(evt) => {
+            // get caret position: http://www.codeproject.com/Questions/434562/How-To-Get-Position-Cursor-in-TextBox-Or-TextArea
+            const shouldRemoveTag = typeof this.input.selectionStart === 'number'
+              ? this.input.selectionStart === 0
+              : searcher.length === 0
             const key = evt.keyCode || evt.which
-            if (key === 8 && filters.length) { removeFilter(filters[filters.length - 1]) }
+            if (key === 8 && filters.length && shouldRemoveTag) {
+              removeFilter(filters[filters.length - 1])
+            }
           }}
           onChange={(evt) => updateSearcher(evt.target.value)}
           value={searcher}
