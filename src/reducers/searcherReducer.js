@@ -1,7 +1,12 @@
+import formsFilterer from './formsFilterer'
+
 export default function searcherReducer (state, action) {
   const {searcher} = action
+  const filters = [...state.filters, searcher]
+  const filteredForms = formsFilterer(state.forms, filters)
   return Object.assign({}, state, {
-    searcher: searcher
+    searcher: searcher,
+    filteredForms
   }, findSuggestions(searcher, state))
 }
 
