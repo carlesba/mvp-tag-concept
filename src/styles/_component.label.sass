@@ -2,16 +2,25 @@
   margin-right: 10px
 
 .c-filter-label
+  +fontBold(12px)
+  letter-spacing: 1.667px
+  text-transform: uppercase
+  padding: 2px 5px
+  border: 1px solid orange
   border-radius: 4px
-  background-color: orange
-  line-height: 30px
   margin-left: 10px
-  padding: 0 10px
+  cursor: pointer
 
 .c-filter-label--tag
-  background-color: #A72B7B
-  color: white
+  color: #A72B7B
+  border-color: #A72B7B
+  &:before
+    content: '#'
+    margin-right: 5px
 
 .c-filter-label--people
-  background-color: #2B7FA7
-  color: white
+  color: #2B7FA7
+  border-color: #2B7FA7
+  &:before
+    content: '@'
+    margin-right: 5px
