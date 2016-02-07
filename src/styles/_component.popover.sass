@@ -1,79 +1,53 @@
 $popoverBorderColor: #E7E7E7
-
+$popoverColor: #555
 .c-popover
   position: relative
   z-index: $zIndex--popover
+  background: $popoverColor
+  color: white
+  padding: 7px
+  border-radius: 3px
   &.is-hidden
     display: none
 
 .c-popover--top
-  &::before
-    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    top: - $padding - 2
-    right: calc(50% - #{$popoverArrowWidth + 2})
   &::after
-    +triangle(top, $white, $padding, $popoverArrowWidth)
+    +triangle(top, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    top: -$padding
+    top: -$popoverArrowHeight
     right: calc(50% - #{$popoverArrowWidth})
 
 .c-popover--top-right
-  &::before
-    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    top: - $padding - 2
-    right: $popoverArrowWidth - 2
   &::after
-    +triangle(top, $white, $padding, $popoverArrowWidth)
+    +triangle(top, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    top: -$padding
+    top: -$popoverArrowHeight
     right: $popoverArrowWidth
 
 .c-popover--top-left
-  &::before
-    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    top: - $padding - 2
-    left: $popoverArrowWidth - 2
   &::after
-    +triangle(top, $white, $padding, $popoverArrowWidth)
+    +triangle(top, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    top: -$padding
+    top: -$popoverArrowHeight
     left: $popoverArrowWidth
 
 .c-popover--bottom
-  &::before
-    +triangle(bottom, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    bottom: - $padding - 2
-    right: calc(50% - #{$popoverArrowWidth + 2})
   &::after
-    +triangle(bottom, $white, $padding, $popoverArrowWidth)
+    +triangle(bottom, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    bottom: -$padding
+    bottom: -$popoverArrowHeight
     right: calc(50% - #{$popoverArrowWidth})
 
 .c-popover--right
-  &::before
-    +triangle(right, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    right: - $padding - 2
-    top: calc(50% - #{$popoverArrowWidth + 2})
   &::after
-    +triangle(right, $white, $padding, $popoverArrowWidth)
+    +triangle(right, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    right: -$padding
+    right: -$popoverArrowHeight
     top: calc(50% - #{$popoverArrowWidth})
 
 .c-popover--left
-  &::before
-    +triangle(left, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
-    position: absolute
-    left: - $padding - 2
-    top: calc(50% - #{$popoverArrowWidth + 2})
   &::after
-    +triangle(left, $white, $padding, $popoverArrowWidth)
+    +triangle(left, $popoverColor, $popoverArrowHeight, $popoverArrowWidth)
     position: absolute
-    left: -$padding
+    left: -$popoverArrowHeight
     top: calc(50% - #{$popoverArrowWidth})

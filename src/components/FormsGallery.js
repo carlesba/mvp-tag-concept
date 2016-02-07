@@ -1,6 +1,7 @@
 import React, {PropTypes, Component} from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {connect} from 'react-redux'
+import Popover from './Popover'
 
 class FormsGallery extends Component {
   render () {
@@ -60,22 +61,37 @@ const FormItemTags = ({tags, people}) => {
     <div className='o-wrapper'>
       <div className='o-overlapped-list'>
         {tags.map(tag =>
-            <div
-            key={tag}
-            className='o-overlapped-list__item c-thumbnail__tag c-thumbnail__tag--label'
-            />
+          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' />
         )}
       </div>
       <div className='o-overlapped-list'>
         {people.map(person =>
-            <div
-            key={person}
-            className='o-overlapped-list__item c-thumbnail__tag c-thumbnail__tag--people'
-            />
+          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' />
         )}
       </div>
     </div>
   )
+}
+class FormItemTag extends Component {
+  constructor (props) {
+    super(props)
+    this.state = {hover: false}
+  }
+  render () {
+    const {name, className} = this.props
+    const classes = ['o-overlapped-list__item', 'c-thumbnail__tag', className]
+    return (
+      <div
+        onMouseEnter={() => this.setState({hover: true})}
+        onMouseLeave={() => this.setState({hover: false})}
+        className={classes.join(' ')}
+      >
+        <Popover isVisible={this.state.hover}>
+          <div>{name}</div>
+        </Popover>
+      </div>
+    )
+  }
 }
 function mapStateToProps ({forms, filteredForms}) {
   return {forms, filteredForms}
