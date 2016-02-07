@@ -1,0 +1,63 @@
+
+//
+// FONTS
+//
+=fontFace($path, $family)
+  @font-face
+    font-family: $family
+    src: url('#{$path}.woff') format("woff")
+
+=fontRegular($fontSize: 20px)
+  font-family: $fontRegular
+  font-size: $fontSize
+
+=fontMedium($fontSize: 20px)
+  font-family: $fontMedium
+  font-size: $fontSize
+
+=fontBold($fontSize: 16px)
+  font-family: $fontBold
+  font-size: $fontSize
+
+=fontRegular20()
+  +fontRegular()
+  line-height: 30px
+
+=fontMedium12()
+  +fontMedium(12px)
+  line-height: 20px
+
+=fontMedium13()
+  +fontMedium(12px)
+  line-height: 30px
+
+=fontMedium14()
+  +fontMedium(14px)
+  line-height: 30px
+
+=fontMedium16()
+  +fontMedium(16px)
+  line-height: 30px
+
+=fontBold10()
+  +fontBold(10px)
+  line-height: 20px
+
+=fontBold16()
+  +fontBold()
+  line-height: 30px
+
+//
+// Shadows
+//
+=shadowOpacity($shadow, $opacity)
+  position: relative
+  &::before
+    content: ''
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    box-shadow: $shadow
+    opacity: $opacity

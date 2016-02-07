@@ -1,0 +1,79 @@
+$popoverBorderColor: #E7E7E7
+
+.c-popover
+  position: relative
+  z-index: $zIndex--popover
+  &.is-hidden
+    display: none
+
+.c-popover--top
+  &::before
+    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    top: - $padding - 2
+    right: calc(50% - #{$popoverArrowWidth + 2})
+  &::after
+    +triangle(top, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    top: -$padding
+    right: calc(50% - #{$popoverArrowWidth})
+
+.c-popover--top-right
+  &::before
+    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    top: - $padding - 2
+    right: $popoverArrowWidth - 2
+  &::after
+    +triangle(top, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    top: -$padding
+    right: $popoverArrowWidth
+
+.c-popover--top-left
+  &::before
+    +triangle(top, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    top: - $padding - 2
+    left: $popoverArrowWidth - 2
+  &::after
+    +triangle(top, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    top: -$padding
+    left: $popoverArrowWidth
+
+.c-popover--bottom
+  &::before
+    +triangle(bottom, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    bottom: - $padding - 2
+    right: calc(50% - #{$popoverArrowWidth + 2})
+  &::after
+    +triangle(bottom, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    bottom: -$padding
+    right: calc(50% - #{$popoverArrowWidth})
+
+.c-popover--right
+  &::before
+    +triangle(right, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    right: - $padding - 2
+    top: calc(50% - #{$popoverArrowWidth + 2})
+  &::after
+    +triangle(right, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    right: -$padding
+    top: calc(50% - #{$popoverArrowWidth})
+
+.c-popover--left
+  &::before
+    +triangle(left, $popoverBorderColor, $padding + 2, $popoverArrowWidth + 2)
+    position: absolute
+    left: - $padding - 2
+    top: calc(50% - #{$popoverArrowWidth + 2})
+  &::after
+    +triangle(left, $white, $padding, $popoverArrowWidth)
+    position: absolute
+    left: -$padding
+    top: calc(50% - #{$popoverArrowWidth})

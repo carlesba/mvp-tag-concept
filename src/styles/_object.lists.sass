@@ -1,0 +1,32 @@
+.o-vlist
+  position: relative
+
+.o-vlist__item
+  line-height: 30px
+  margin-bottom: 10px
+  padding: 0 0 0 19px
+
+/*
+  retro-compatible
+ */
+// .o-hlist
+//   position: relative
+//   height: 100%
+//   &::before
+//     height: 100%
+//     display: inline-block
+//     vertical-align: middle
+//     content: ''
+//
+// .o-hlist__item
+//   display: inline-block
+//   vertical-align: middle
+
+/*
+  Using flex
+  */
+.o-hlist
+  position: relative
+  height: 100%
+  +display(inline-flex)
+  +align-items(center)

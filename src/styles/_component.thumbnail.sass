@@ -1,0 +1,53 @@
+$c-thumbnail-shadow-border-radius: 2px
+
+.c-thumbnail
+  background-color: $grey1
+  border: 1px solid $grey3
+  width: 170px
+  height: 200px
+  margin: $padding
+  cursor: pointer
+  position: relative
+  &::after
+    width: 166px
+    height: 200px
+    background-color: $grey3
+    border-radius: $c-thumbnail-shadow-border-radius
+    content: ''
+    display: block
+    position: relative
+    z-index: -1
+    position: absolute
+    top: 3px
+    left: 2px
+
+.c-thumbnail--button
+  background-color: $lightSea
+  border-color: $darkSea
+  color: $white
+  &::after
+    background-color: $darkSea
+
+.c-thumbnail--empty
+  background-color: fade-out($grey3, 0.8)
+  border-radius: 2px
+  border: 2px dashed $grey4
+  cursor: auto
+  &::after
+    display: none
+
+.c-thumbnail__title
+  +fontBold
+
+.c-thumbnail__subtitle
+  +fontMedium12
+  color: $grey4
+
+.c-thumbnail__icon
+  width: 50px
+  height: 50px
+  stroke: $darkSea
+  fill: $darkSea
+
+.c-thumbnail__options
+  cursor: pointer

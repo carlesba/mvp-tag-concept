@@ -1,0 +1,41 @@
+/*
+  <div class="o-beside**">
+    <div class="o-beside__wrapper">
+      <div>content</div>
+    </div>
+  </div>
+ */
+.o-beside
+  position: absolute
+  height: 0
+  width: 0
+
+
+.o-beside--bottom
+  bottom: -$padding
+  right: 50%
+
+.o-beside--bottom-right
+  bottom: -$padding
+  right: 0
+
+.o-beside--bottom-left
+  bottom: -$padding
+  left: 0
+
+.o-beside--right
+  bottom: 50%
+  right: 0
+
+.o-beside__wrapper
+  +display(flex)
+  +align-items(center)
+
+  .o-beside--center > &
+    +justify-content(center)
+
+  .o-beside--start > &
+    +justify-content(flex-start)
+
+  .o-beside--end > &
+    +justify-content(flex-end)

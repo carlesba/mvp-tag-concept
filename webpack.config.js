@@ -1,4 +1,5 @@
 var webpackDevServer = 'webpack-dev-server/client?http://localhost:8080'
+var bourbonPaths = require('bourbon').includePaths
 
 module.exports = {
   context: __dirname + '/src',
@@ -35,7 +36,8 @@ module.exports = {
   },
   sassLoader: {
     includePaths: [
-      __dirname + '/src/sass'
+      __dirname + '/src/styles',
+      bourbonPaths
     ],
     indentedSyntax: true
   }

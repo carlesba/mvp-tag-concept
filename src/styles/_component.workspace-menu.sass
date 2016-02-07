@@ -1,0 +1,19 @@
+.c-workspace-menu
+  +fontMedium14
+  color: $grey3
+
+.c-workspace-menu__title
+  +fontBold10
+  text-transform: uppercase
+
+.c-workspace-menu__item
+  cursor: pointer
+
+  &:hover
+    box-shadow: inset -2px 0 0 $black
+    color: $black
+
+  &.is-selected
+    color: $black
+    box-shadow: inset -2px 0 0 $black
+    cursor: auto

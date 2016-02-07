@@ -1,0 +1,29 @@
+
+.c-popover-menu
+  +fontMedium13
+  padding: $padding 0
+  border: 1px solid $popoverBorderColor
+  border-radius: 3px
+  background-color: $white
+  +shadowOpacity(0px 2px 4px 0px $black, .09)
+
+.c-popover-menu__text
+  color: $grey3
+  padding: 0 $padding*2
+  white-space: nowrap
+  position: relative
+
+  &:hover
+    color: $black
+    z-index: $zIndex--popover + 1
+
+.c-popover-menu__item--separator
+  &::before,
+  &::after
+    content: ''
+    display: block
+    border-top: 1px solid $popoverBorderColor
+    margin: $padding 0
+
+  & + &::before
+    display: none
