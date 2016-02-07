@@ -1,21 +1,14 @@
 import React, {PropTypes, Component} from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {connect} from 'react-redux'
 import Popover from './Popover'
+import MovingGrid from './MovingGrid'
 
 class FormsGallery extends Component {
   render () {
     return (
-      <ReactCSSTransitionGroup
-        component='div'
-        className='o-gallery'
-        transitionName='a-fade'
-        transitionAppearTimeout={500}
-        transitionEnterTimeout={500}
-        transitionLeaveTimeout={500}
-      >
+      <MovingGrid width={170} height={200}>
         {this.renderItems()}
-      </ReactCSSTransitionGroup>
+      </MovingGrid>
     )
   }
   get filteredItems () {

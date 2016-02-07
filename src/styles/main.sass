@@ -26,20 +26,19 @@
 
 .a-fade-leave
   opacity: 1
-  position: relative
-  transition: all .3s ease-out
-  right: 0
 
   &.a-fade-leave-active
     opacity: 0.01
-    right: 60px
 
 .a-fade-enter
   opacity: 0.01
-  position: relative
-  transition: all .3s ease-out
-  right: 60px
 
   &.a-fade-enter-active
     opacity: 1
-    right: 0
+
+.o-moving-grid
+  position: relative
+  width: 100%
+.o-moving-grid__item
+  position: absolute
+  +transition(top 400ms ease-out, left 400ms ease-out, opacity 400ms ease-out)
