@@ -43,8 +43,8 @@ class FormsGalleryItem extends Component {
     const {title, tags, people} = this.props.form
     return (
       <div className='o-gallery__item c-thumbnail'>
-        <div className='o-vgrid o-vgrid--centered'>
-          <div className='o-corner-tl'>
+        <div className='o-aligner o-aligner--center o-aligner--vertical'>
+          <div className='o-floated-tl'>
             <FormItemTags tags={tags} people={people} />
           </div>
           <div className=''>
