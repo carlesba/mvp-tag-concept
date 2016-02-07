@@ -9,7 +9,7 @@ class SuggestionsBox extends Component {
       ? ' is-empty'
       : ''
     return (
-      <div className={'c-suggestion-box o-floating-panel' + isEmpty}>
+      <div className={'c-suggestion-box ' + isEmpty}>
         <SuggestionList
           key={'tags'}
           prefix='#'

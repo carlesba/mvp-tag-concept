@@ -61,3 +61,17 @@
     left: 0
     box-shadow: $shadow
     opacity: $opacity
+
+=deepness($color: $grey3, $margin: 2px, $deep: 3px)
+  position: relative
+  &::after
+    background-color: $color
+    border-radius: 2px
+    content: ''
+    display: block
+    z-index: -1
+    position: absolute
+    top: $deep
+    left: $margin
+    right: $margin
+    bottom: -$deep

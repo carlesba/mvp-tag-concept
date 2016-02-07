@@ -7,19 +7,7 @@ $c-thumbnail-shadow-border-radius: 2px
   height: 200px
   margin: $padding
   cursor: pointer
-  position: relative
-  &::after
-    width: 166px
-    height: 200px
-    background-color: $grey3
-    border-radius: $c-thumbnail-shadow-border-radius
-    content: ''
-    display: block
-    position: relative
-    z-index: -1
-    position: absolute
-    top: 3px
-    left: 2px
+  +deepness
 
 .c-thumbnail--button
   background-color: $lightSea

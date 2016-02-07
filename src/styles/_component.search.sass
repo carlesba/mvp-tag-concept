@@ -1,17 +1,21 @@
 .c-input-search__input
+  +fontRegular(20px)
+  color: $grey3
   border: 0
   outline: none
-  font-size: 35px
   font-weight: bold
   line-height: 50px
-  padding: 0
-  width: 100%
+  box-sizing: border-box
+  margin-right: 5px
+  width: calc(100% - 5px)
 
 .c-search-box
   margin: 1em 0
-  border: 1px solid #333
+  border: 1px solid $grey3
   border-radius: 5px
-  overflow: hidden
+  background-color: white
+  width: 100%
+  +deepness($grey3, 4px)
 
 .c-suggestion-box
   background-color: white
