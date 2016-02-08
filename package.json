@@ -31,9 +31,11 @@
     "standard": "^5.4.1",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.12",
+    "url-loader": "^0.5.7",
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
+    "bourbon": "^4.2.6",
     "classname": "0.0.0",
     "react": "^0.14.6",
     "react-addons-css-transition-group": "^0.14.7",
