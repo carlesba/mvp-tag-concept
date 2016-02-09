@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Popover from './Popover'
 import MovingGrid from './MovingGrid'
 import {addFilter} from '../actions'
-import {getColorFactory} from '../utils/colors'
+import {getColorFactoryBy} from '../utils/colors'
 
 class FormsGallery extends Component {
   render () {
@@ -62,17 +62,18 @@ class FormsGalleryItem extends Component {
   }
 }
 const FormItemTags = ({tags, people, addFilter, labels}) => {
-  const getColors = getColorFactory(labels.colors, labels.people, labels.tags)
+  const getTagColors = getColorFactoryBy(labels.colors, labels.tags)
+  const getPeopleColors = getColorFactoryBy(labels.colors, labels.people)
   return (
     <div className='o-wrapper'>
       <div className='o-overlapped-list'>
         {tags.map(tag =>
-          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' color={getColors('#' + tag)} addFilter={addFilter} />
+          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' color={getTagColors(tag)} addFilter={addFilter} />
         )}
       </div>
       <div className='o-overlapped-list'>
         {people.map(person =>
-          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' color={getColors('@' + person)}addFilter={addFilter} />
+          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' color={getPeopleColors(person)}addFilter={addFilter} />
         )}
       </div>
     </div>
