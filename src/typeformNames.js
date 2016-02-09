@@ -349,21 +349,18 @@ export const NAMES = [
   // 'Lawyer meetings reimbursement',
   // 'BAAAHS 2015 - The aftermath',
   // 'BAAAHS 2015 - The aftermath',
-  // 'Anfrage Stephan Heinrich',
-  'Könnun'
+  'Anfrage Stephan Heinrich'
 ]
 export const TAGS = [
   'blubber',
   'pencil',
   'cloud',
-  'moon',
   'water',
   'computer',
   'school',
   'network',
   'hammer',
   'walking',
-  'violently',
   'mediocre',
   'literature',
   'chair',
