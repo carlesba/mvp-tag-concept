@@ -12,7 +12,7 @@ class MovingGrid extends Component {
   }
   parseChildren () {
     const {children, width, height, margin} = this.props
-    const elementsPerRow = Math.floor(this.state.width / (width + 2 * margin))
+    const elementsPerRow = Math.floor(this.state.width / width)
     return React.Children.map(children, (child, i) => {
       const position = elementsPerRow
         ? i / elementsPerRow

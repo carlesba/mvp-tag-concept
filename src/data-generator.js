@@ -21,9 +21,16 @@ const randomWord = () => {
 const TAGS = createFilledArray(10).map(() => randomWord())
 const PEOPLE = ['David', 'Linus', 'Carles', 'Maja', 'Victor', 'Bojana']
 
+const BG_COLORS = [ '#F1F9FA', '#FDF8EC', '#FAF1EA', '#F3F9EF', '#F9F3FA', '#FAEEF1' ]
+
 const randomArrayElements = (arr) => {
   const randomLength = randomNum(arr.length)
   return arr.sort(() => randomNum(3) - 1).filter((w, i) => i < randomLength)
+}
+
+const getRandomElementFromArray = (arr) => {
+  const randomIndex = randomNum(arr.length)
+  return arr[randomIndex]
 }
 
 const generateTitle = () => randomWord()
@@ -46,7 +53,8 @@ const fakeDataGenerator = (length) => {
           tags: generateTags(),
           people: generatePeople(),
           date: generateDate(),
-          results: generateResults()
+          results: generateResults(),
+          color: getRandomElementFromArray(BG_COLORS)
         }
       }),
     tags: TAGS,

@@ -37,9 +37,10 @@ FormsGallery.propTypes = {
 class FormsGalleryItem extends Component {
   render () {
     const {addFilter, form} = this.props
-    const {title, tags, people} = form
+    const {title, tags, people, color} = form
+    const styles = {backgroundColor: color}
     return (
-      <div className='o-gallery__item c-thumbnail'>
+      <div className='o-gallery__item c-thumbnail' style={styles}>
         <div className='o-aligner o-aligner--center o-aligner--vertical'>
           <div className='o-floated-tl'>
             <FormItemTags tags={tags} people={people} addFilter={addFilter}/>
