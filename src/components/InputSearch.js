@@ -8,14 +8,14 @@ const TAB_KEY = 9
 
 class InputSearch extends Component {
   render () {
-    const {updateSearcher, searcher, addFilter, removeFilter, filters} = this.props
+    const {updateSearcher, searcher, addFilter, removeFilter, filters, colors, people, tags} = this.props
     return (
       <form className='o-hlist c-search-box' onSubmit={(evt) => {
         evt.preventDefault()
         addFilter(searcher)
       }}>
         <div className='o-hlist__fixed'>
-          <FiltersBox filters={filters} removeFilter={removeFilter} />
+          <FiltersBox filters={filters} colors={colors} people={people} tags={tags} removeFilter={removeFilter} />
         </div>
         <input
           className='o-hlist__fluid c-input-search__input' type='text'
@@ -53,8 +53,8 @@ class InputSearch extends Component {
     }
   }
 }
-function mapStateToProps ({searcher, filters, suggestedTags, suggestedPeople}) {
-  return { searcher, filters, suggestedTags, suggestedPeople }
+function mapStateToProps ({searcher, filters, suggestedTags, suggestedPeople, colors, people, tags}) {
+  return { searcher, filters, suggestedTags, suggestedPeople, colors, people, tags }
 }
 export default connect(mapStateToProps, {
   updateSearcher,

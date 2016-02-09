@@ -3,6 +3,7 @@ import {connect} from 'react-redux'
 import Popover from './Popover'
 import MovingGrid from './MovingGrid'
 import {addFilter} from '../actions'
+import {getColorFactory} from '../utils/colors'
 
 class FormsGallery extends Component {
   render () {
@@ -23,9 +24,15 @@ class FormsGallery extends Component {
     }
   }
   renderItems () {
-    const {addFilter} = this.props
+    const {addFilter, tags, people, colors} = this.props
     return this.filteredItems.map((form) =>
-      <FormsGalleryItem key={form.id} form={form} addFilter={addFilter}/>
+      <FormsGalleryItem
+        key={form.id}
+        form={form}
+        tags={tags}
+        people={people}
+        colors={colors}
+        addFilter={addFilter}/>
     )
   }
 }
@@ -36,14 +43,15 @@ FormsGallery.propTypes = {
 
 class FormsGalleryItem extends Component {
   render () {
-    const {addFilter, form} = this.props
-    const {title, tags, people, color} = form
+    const {addFilter, form, tags, people, colors} = this.props
+    const {title, color} = form
     const styles = {backgroundColor: color}
+    const labels = {tags, people, colors}
     return (
       <div className='o-gallery__item c-thumbnail' style={styles}>
         <div className='o-aligner o-aligner--center o-aligner--vertical'>
           <div className='o-floated-tl'>
-            <FormItemTags tags={tags} people={people} addFilter={addFilter}/>
+            <FormItemTags tags={form.tags} people={form.people} labels={labels} addFilter={addFilter}/>
           </div>
           <div className='c-thumbnail__title'>
             <div className='o-wrapper'>{title}</div>
@@ -53,17 +61,18 @@ class FormsGalleryItem extends Component {
     )
   }
 }
-const FormItemTags = ({tags, people, addFilter}) => {
+const FormItemTags = ({tags, people, addFilter, labels}) => {
+  const getColors = getColorFactory(labels.colors, labels.people, labels.tags)
   return (
     <div className='o-wrapper'>
       <div className='o-overlapped-list'>
         {tags.map(tag =>
-          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' addFilter={addFilter} />
+          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' color={getColors('#' + tag)} addFilter={addFilter} />
         )}
       </div>
       <div className='o-overlapped-list'>
         {people.map(person =>
-          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' addFilter={addFilter} />
+          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' color={getColors('@' + person)}addFilter={addFilter} />
         )}
       </div>
     </div>
@@ -75,10 +84,14 @@ class FormItemTag extends Component {
     this.state = {hover: false}
   }
   render () {
-    const {name, className, addFilter} = this.props
+    const {name, className, addFilter, color} = this.props
     const classes = ['o-overlapped-list__item', 'c-thumbnail__tag', className]
+    const styles = color
+      ? {backgroundColor: color}
+      : {}
     return (
       <div
+        style={styles}
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
         onClick={() => addFilter(name)}
@@ -91,8 +104,8 @@ class FormItemTag extends Component {
     )
   }
 }
-function mapStateToProps ({forms, filteredForms}) {
-  return {forms, filteredForms}
+function mapStateToProps ({forms, filteredForms, tags, people, colors}) {
+  return {forms, filteredForms, tags, people, colors}
 }
 
 export default connect(mapStateToProps, {addFilter})(FormsGallery)

@@ -23,6 +23,7 @@ const randomNum = (order) => Math.floor(Math.random() * order)
 const PEOPLE = ['David', 'Linus', 'Carles', 'Maja', 'Victor', 'Bojana']
 
 const BG_COLORS = [ '#F1F9FA', '#FDF8EC', '#FAF1EA', '#F3F9EF', '#F9F3FA', '#FAEEF1' ]
+const COLORS = ['#73BEC8', '#E4BA3F', '#CB732B', '#89BC62', '#C384C5', '#CB732B']
 
 const randomArrayElements = (arr) => {
   const randomLength = randomNum(arr.length)
@@ -59,7 +60,8 @@ const fakeDataGenerator = () => {
         }
       }),
     tags: TAGS,
-    people: PEOPLE
+    people: PEOPLE,
+    colors: COLORS
   }
 }
 

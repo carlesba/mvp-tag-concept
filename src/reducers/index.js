@@ -7,7 +7,7 @@ import addFilterReducer from './addFilterReducer'
 import searcherReducer from './searcherReducer'
 import removeFilterReducer from './removeFilterReducer'
 import dataGenerator from '../data-generator'
-const {forms, tags, people} = dataGenerator(100)
+const {forms, tags, people, colors} = dataGenerator()
 
 const defaultData = {
   searcher: '',
@@ -17,7 +17,8 @@ const defaultData = {
   filteredForms: [],
   forms,
   tags,
-  people
+  people,
+  colors
 }
 console.log('defaultData', defaultData)
 const reducers = (state = defaultData, action) => {
