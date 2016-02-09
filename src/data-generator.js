@@ -1,5 +1,6 @@
-const VOWELS = 'aeiou'
-const CONSONANT = 'bcdfghjklmnpqrstvwz'
+import {TAGS, NAMES} from './typeformNames'
+// const VOWELS = 'aeiou'
+// const CONSONANT = 'bcdfghjklmnpqrstvwz'
 
 const createFilledArray = (length) => {
   return Array.apply(null, Array(length)).map(Number.prototype.valueOf, 0)
@@ -7,18 +8,18 @@ const createFilledArray = (length) => {
 
 const randomNum = (order) => Math.floor(Math.random() * order)
 
-const randomWord = () => {
-  const titleLength = randomNum(10) + 3
-  const word = createFilledArray(titleLength).reduce((acc, x, i) => {
-    const letter = i % 2
-      ? VOWELS.charAt(randomNum(VOWELS.length))
-      : CONSONANT.charAt(randomNum(CONSONANT.length))
-    return acc + letter
-  }, '')
-  return word
-}
+// const randomWord = () => {
+//   const titleLength = randomNum(10) + 3
+//   const word = createFilledArray(titleLength).reduce((acc, x, i) => {
+//     const letter = i % 2
+//       ? VOWELS.charAt(randomNum(VOWELS.length))
+//       : CONSONANT.charAt(randomNum(CONSONANT.length))
+//     return acc + letter
+//   }, '')
+//   return word
+// }
 
-const TAGS = createFilledArray(10).map(() => randomWord())
+// const TAGS = createFilledArray(10).map(() => randomWord())
 const PEOPLE = ['David', 'Linus', 'Carles', 'Maja', 'Victor', 'Bojana']
 
 const BG_COLORS = [ '#F1F9FA', '#FDF8EC', '#FAF1EA', '#F3F9EF', '#F9F3FA', '#FAEEF1' ]
@@ -33,7 +34,7 @@ const getRandomElementFromArray = (arr) => {
   return arr[randomIndex]
 }
 
-const generateTitle = () => randomWord()
+// const generateTitle = () => randomWord()
 const generateTags = () => randomArrayElements(TAGS)
 const generatePeople = () => randomArrayElements(PEOPLE)
 
@@ -43,13 +44,13 @@ const generateDate = () => {
 }
 const generateResults = () => randomNum(300)
 
-const fakeDataGenerator = (length) => {
+const fakeDataGenerator = () => {
   return {
-    forms: createFilledArray(length)
+    forms: createFilledArray(NAMES.length)
       .map((a, index) => {
         return {
           id: index,
-          title: generateTitle(),
+          title: NAMES[index],
           tags: generateTags(),
           people: generatePeople(),
           date: generateDate(),

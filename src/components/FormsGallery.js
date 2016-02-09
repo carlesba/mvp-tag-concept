@@ -45,8 +45,8 @@ class FormsGalleryItem extends Component {
           <div className='o-floated-tl'>
             <FormItemTags tags={tags} people={people} addFilter={addFilter}/>
           </div>
-          <div className=''>
-            {title}
+          <div className='c-thumbnail__title'>
+            <div className='o-wrapper'>{title}</div>
           </div>
         </div>
       </div>
