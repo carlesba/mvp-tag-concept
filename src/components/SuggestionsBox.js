@@ -12,19 +12,25 @@ class SuggestionsBox extends Component {
     })
     return (
       <div className={classes}>
+        {this.renderSuggestionList('tags', '#', suggestedTags, 'c-filter-label--tag', addFilter)}
+        {this.renderSuggestionList('people', '@', suggestedPeople, 'c-filter-label--people', addFilter)}
+      </div>
+    )
+  }
+  renderSuggestionList (key, prefix, list, classes, actionClick) {
+    if (list.length === 0) return ''
+    const title = key === 'people'
+      ? 'Suggested People'
+      : 'Suggested Tags'
+    return (
+      <div>
+        <h1 className='c-suggestion-box__title'>{title}</h1>
         <SuggestionList
-          key={'tags'}
-          prefix='#'
-          list={suggestedTags}
-          classes={'c-filter-label--tag'}
-          actionClick={addFilter}
-        />
-        <SuggestionList
-          key={'people'}
-          prefix='@'
-          list={suggestedPeople}
-          classes={'c-filter-label--people'}
-          actionClick={addFilter}
+          key={key}
+          prefix={prefix}
+          list={list}
+          classes={classes}
+          actionClick={actionClick}
         />
       </div>
     )
