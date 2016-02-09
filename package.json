@@ -5,6 +5,7 @@
   "main": "webpack.config.js",
   "scripts": {
     "start": "./node_modules/.bin/webpack-dev-server -d -w --colors",
+    "build": "NODE_ENV=production ./node_modules/.bin/webpack --colors",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
