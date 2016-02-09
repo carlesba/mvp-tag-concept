@@ -1,7 +1,6 @@
 import formsFilterer from './formsFilterer'
 
 export default function removeFilterReducer (state, action) {
-  console.log('aaaaaa', state, action)
   const filter = action.filter
   const newFilters = state.filters.filter((f) => f !== filter)
   return Object.assign({}, state, {

@@ -2,6 +2,7 @@ import React, {PropTypes, Component} from 'react'
 import {connect} from 'react-redux'
 import Popover from './Popover'
 import MovingGrid from './MovingGrid'
+import {addFilter} from '../actions'
 
 class FormsGallery extends Component {
   render () {
@@ -21,9 +22,10 @@ class FormsGallery extends Component {
       return forms
     }
   }
-  renderItems (forms) {
+  renderItems () {
+    const {addFilter} = this.props
     return this.filteredItems.map((form) =>
-      <FormsGalleryItem key={form.id} form={form} />
+      <FormsGalleryItem key={form.id} form={form} addFilter={addFilter}/>
     )
   }
 }
@@ -34,12 +36,13 @@ FormsGallery.propTypes = {
 
 class FormsGalleryItem extends Component {
   render () {
-    const {title, tags, people} = this.props.form
+    const {addFilter, form} = this.props
+    const {title, tags, people} = form
     return (
       <div className='o-gallery__item c-thumbnail'>
         <div className='o-aligner o-aligner--center o-aligner--vertical'>
           <div className='o-floated-tl'>
-            <FormItemTags tags={tags} people={people} />
+            <FormItemTags tags={tags} people={people} addFilter={addFilter}/>
           </div>
           <div className=''>
             {title}
@@ -49,17 +52,17 @@ class FormsGalleryItem extends Component {
     )
   }
 }
-const FormItemTags = ({tags, people}) => {
+const FormItemTags = ({tags, people, addFilter}) => {
   return (
     <div className='o-wrapper'>
       <div className='o-overlapped-list'>
         {tags.map(tag =>
-          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' />
+          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' addFilter={addFilter} />
         )}
       </div>
       <div className='o-overlapped-list'>
         {people.map(person =>
-          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' />
+          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' addFilter={addFilter} />
         )}
       </div>
     </div>
@@ -71,12 +74,13 @@ class FormItemTag extends Component {
     this.state = {hover: false}
   }
   render () {
-    const {name, className} = this.props
+    const {name, className, addFilter} = this.props
     const classes = ['o-overlapped-list__item', 'c-thumbnail__tag', className]
     return (
       <div
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
+        onClick={() => addFilter(name)}
         className={classes.join(' ')}
       >
         <Popover isVisible={this.state.hover}>
@@ -90,4 +94,4 @@ function mapStateToProps ({forms, filteredForms}) {
   return {forms, filteredForms}
 }
 
-export default connect(mapStateToProps)(FormsGallery)
+export default connect(mapStateToProps, {addFilter})(FormsGallery)
