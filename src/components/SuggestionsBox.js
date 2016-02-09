@@ -1,15 +1,17 @@
 import React, {PropTypes, Component} from 'react'
 import {connect} from 'react-redux'
 import {addFilter} from '../actions'
+import classname from 'classname'
 
 class SuggestionsBox extends Component {
   render () {
     const {addFilter, suggestedTags, suggestedPeople} = this.props
     const isEmpty = suggestedTags.length === 0 && suggestedPeople.length === 0
-      ? ' is-empty'
-      : ''
+    const classes = classname('c-suggestion-box', 'o-floated', {
+      'is-empty': isEmpty
+    })
     return (
-      <div className={'c-suggestion-box ' + isEmpty}>
+      <div className={classes}>
         <SuggestionList
           key={'tags'}
           prefix='#'
