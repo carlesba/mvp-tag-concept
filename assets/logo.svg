@@ -1,48 +1,33 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<svg width="81px" height="82px" viewBox="0 0 81 82" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
-    <!-- Generator: Sketch 3.5.1 (25234) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 2</title>
+<svg width="42px" height="42px" viewBox="0 0 42 42" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.5 (25232) - http://www.bohemiancoding.com/sketch -->
+    <title>icn-typeform-logo</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <rect id="path-1" x="0" y="0" width="60" height="60" rx="3"></rect>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-3">
-            <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="blur"></feGaussianBlur>
-        </filter>
-        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-4">
-            <feGaussianBlur stdDeviation="2" in="SourceGraphic" result="blur"></feGaussianBlur>
-        </filter>
+        <rect id="path-1" x="0" y="0" width="42" height="42" rx="3"></rect>
     </defs>
     <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
-        <g id="Colors" sketch:type="MSArtboardGroup" transform="translate(-21.000000, -30.000000)">
-            <g id="Group-2" sketch:type="MSLayerGroup" transform="translate(20.000000, 30.000000)">
-                <g id="icn-typeform-logo" transform="translate(10.000000, 0.000000)">
-                    <g id="icn-typeform-blocks">
-                        <mask id="mask-2" sketch:name="Mask" fill="white">
-                            <use xlink:href="#path-1"></use>
-                        </mask>
-                        <use id="Mask" fill="#D8D8D8" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
-                        <rect id="blue" fill="#8BCBCA" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="0" width="20" height="20"></rect>
-                        <rect id="yellow" fill="#E4BA3F" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="20" y="0" width="20" height="20"></rect>
-                        <rect id="orange" fill="#CB732B" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="40" y="0" width="20" height="20"></rect>
-                        <rect id="green" fill="#89BC62" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="20" width="20" height="20"></rect>
-                        <rect id="purple" fill="#C384C5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="20" y="20" width="20" height="20"></rect>
-                        <rect id="red" fill="#C75875" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="40" y="20" width="20" height="20"></rect>
-                        <rect id="gray1" fill="#D8D8D8" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="40" width="20" height="20"></rect>
-                        <rect id="gray2" fill="#BBBBBB" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="20" y="40" width="20" height="20"></rect>
-                        <rect id="gray3" fill="#949393" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="40" y="40" width="20" height="20"></rect>
-                    </g>
-                    <g id="icn-typeform-shadow" transform="translate(13.846154, 10.769231)" fill="#000000" sketch:type="MSShapeGroup">
-                        <path d="M23.0769231,0 L27.6923077,0 L27.6923077,36.9230769 L23.0769231,36.9230769 L23.0769231,0 Z" id="Fill-2-Copy" filter="url(#filter-3)"></path>
-                        <path d="M11.4193558,14.2023491 L11.4193558,27.221611 C11.4193558,28.9680188 11.745699,30.2170224 12.3991443,30.968243 C13.0514512,31.7198423 14.0946111,32.0069957 15.5210344,32.0952632 C15.9505932,32.1217813 17.6077336,32.1589067 18.4615385,32.0452576 L18.4615385,36.5832661 C17.5128664,36.7048707 16.5167607,36.9230769 14.1742995,36.9230769 C11.4394676,36.9230769 9.34783537,36.1695834 7.89940281,34.6618387 C6.45059079,33.1552305 5.72656424,30.8939922 5.72656424,27.8785028 L5.72656424,14.2023491 L0,14.2023491 L0,8.53428967 L5.72656424,8.53428967 L5.72656424,0 L11.4193558,0 L11.4193558,8.53428967 L18.4615385,8.53428967 L18.4615385,14.2023491 L11.4193558,14.2023491 Z" id="Fill-3-Copy" filter="url(#filter-4)"></path>
-                    </g>
-                    <g transform="translate(13.846154, 10.769231)" fill="#FFFFFF" sketch:type="MSShapeGroup">
-                        <path d="M23.0769231,0 L27.6923077,0 L27.6923077,36.9230769 L23.0769231,36.9230769 L23.0769231,0 Z" id="Fill-2-Copy"></path>
-                        <path d="M10.7692308,13.8461538 L10.7692308,27.6923077 C10.7692308,28.1387136 11.5067493,31.0459614 11.878756,31.3191106 C13.0296291,32.1641491 14.0946111,32.0069957 15.3846154,32.3076923 C15.9505932,32.1217813 17.6077336,32.1589067 18.4615385,32.3076923 L18.4615385,36.9230769 C17.5128664,36.7048707 16.5167607,36.9230769 13.8461538,36.9230769 C11.4394676,36.9230769 10.3008564,36.5328275 8.76239483,35.5160757 C7.22393329,34.4993239 6.15384615,31.3191106 6.15384615,27.6923077 L6.15384615,13.8461538 L0,13.8461538 L0,9.23076923 L6.15384615,9.23076923 L6.15384615,0 L10.7692308,0 L10.7692308,9.23076923 L18.4615385,9.23076923 L18.4615385,13.8461538 L10.7692308,13.8461538 Z" id="Fill-3-Copy"></path>
-                    </g>
+        <g id="Colors-Copy" sketch:type="MSArtboardGroup" transform="translate(-30.000000, -30.000000)">
+            <g id="icn-typeform-logo" sketch:type="MSLayerGroup" transform="translate(30.000000, 30.000000)">
+                <g id="icn-typeform-blocks">
+                    <mask id="mask-2" sketch:name="Mask" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#D8D8D8" sketch:type="MSShapeGroup" xlink:href="#path-1"></use>
+                    <rect id="blue" fill="#8BCBCA" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="0" width="14" height="14"></rect>
+                    <rect id="yellow" fill="#E4BA3F" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="14" y="0" width="14" height="14"></rect>
+                    <rect id="orange" fill="#CB732B" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="28" y="0" width="14" height="14"></rect>
+                    <rect id="green" fill="#89BC62" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="14" width="14" height="14"></rect>
+                    <rect id="purple" fill="#C384C5" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="14" y="14" width="14" height="14"></rect>
+                    <rect id="red" fill="#C75875" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="28" y="14" width="14" height="14"></rect>
+                    <rect id="gray1" fill="#D8D8D8" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="0" y="28" width="14" height="14"></rect>
+                    <rect id="gray2" fill="#BBBBBB" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="14" y="28" width="14" height="14"></rect>
+                    <rect id="gray3" fill="#949393" sketch:type="MSShapeGroup" mask="url(#mask-2)" x="28" y="28" width="14" height="14"></rect>
                 </g>
-                <text id="Innovation" opacity="0.448285914" sketch:type="MSTextLayer" font-family="Avenir Next" font-size="14" font-weight="normal" letter-spacing="1.75" fill="#37404A">
-                    <tspan x="0" y="81">Innovation</tspan>
-                </text>
+                <g transform="translate(9.692308, 7.538462)" fill="#FFFFFF" sketch:type="MSShapeGroup">
+                    <path d="M16.1538462,0 L19.3846154,0 L19.3846154,25.8461538 L16.1538462,25.8461538 L16.1538462,0 Z" id="Fill-2-Copy"></path>
+                    <path d="M7.53846154,9.69230769 L7.53846154,19.3846154 C7.53846154,19.6970995 8.0547245,21.732173 8.31512921,21.9233774 C9.12074037,22.5149044 9.86622775,22.404897 10.7692308,22.6153846 C11.1654152,22.4852469 12.3254135,22.5112347 12.9230769,22.6153846 L12.9230769,25.8461538 C12.2590065,25.6934095 11.5617325,25.8461538 9.69230769,25.8461538 C8.00762732,25.8461538 7.21059946,25.5729793 6.13367638,24.861253 C5.05675331,24.1495267 4.30769231,21.9233774 4.30769231,19.3846154 L4.30769231,9.69230769 L0,9.69230769 L0,6.46153846 L4.30769231,6.46153846 L4.30769231,0 L7.53846154,0 L7.53846154,6.46153846 L12.9230769,6.46153846 L12.9230769,9.69230769 L7.53846154,9.69230769 Z" id="Fill-3-Copy"></path>
+                </g>
             </g>
         </g>
     </g>
