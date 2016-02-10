@@ -3,7 +3,7 @@ import {connect} from 'react-redux'
 import Popover from './Popover'
 import MovingGrid from './MovingGrid'
 import {addFilter} from '../actions'
-import {getColorFactoryBy} from '../utils/colors'
+// import {getColorFactoryBy} from '../utils/colors'
 
 class FormsGallery extends Component {
   render () {
@@ -30,8 +30,8 @@ class FormsGallery extends Component {
         key={form.id}
         form={form}
         tags={tags}
-        people={people}
-        colors={colors}
+        // people={people}
+        // colors={colors}
         addFilter={addFilter}/>
     )
   }
@@ -62,18 +62,18 @@ class FormsGalleryItem extends Component {
   }
 }
 const FormItemTags = ({tags, people, addFilter, labels}) => {
-  const getTagColors = getColorFactoryBy(labels.colors, labels.tags)
-  const getPeopleColors = getColorFactoryBy(labels.colors, labels.people)
+  // const getTagColors = getColorFactoryBy(labels.colors, labels.tags)
+  // const getPeopleColors = getColorFactoryBy(labels.colors, labels.people)
   return (
     <div className='o-wrapper'>
       <div className='o-overlapped-list'>
         {tags.map(tag =>
-          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' color={getTagColors(tag)} addFilter={addFilter} />
+          <FormItemTag key={tag} name={'#' + tag} className='c-thumbnail__tag--label' addFilter={addFilter} />
         )}
       </div>
       <div className='o-overlapped-list'>
         {people.map(person =>
-          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' color={getPeopleColors(person)}addFilter={addFilter} />
+          <FormItemTag key={person} name={'@' + person} className='c-thumbnail__tag--people' addFilter={addFilter} />
         )}
       </div>
     </div>
@@ -87,12 +87,12 @@ class FormItemTag extends Component {
   render () {
     const {name, className, addFilter, color} = this.props
     const classes = ['o-overlapped-list__item', 'c-thumbnail__tag', className]
-    const styles = color
-      ? {backgroundColor: color}
-      : {}
+    // const styles = color
+    //   ? {backgroundColor: color}
+    //   : {}
     return (
       <div
-        style={styles}
+        // style={styles}
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
         onClick={() => addFilter(name)}
