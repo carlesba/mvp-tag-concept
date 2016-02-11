@@ -1,5 +1,4 @@
 import React, {Component, Children} from 'react'
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class MovingGrid extends Component {
   constructor (props) {
@@ -22,21 +21,28 @@ class MovingGrid extends Component {
     this.setState({width})
   }
   parseChildren () {
+    if (this.state.width === 0) {
+      return Children.map(child => this.renderChild(child))
+    }
     const {children, width, height, margin} = this.props
     const elementsPerRow = calculateItemsPerRow(width, margin, this.state.width)
     const newMargin = calculateAdaptativeMargin(this.state.width, width, elementsPerRow)
     return Children.map(children, (child, index) => {
       const {row, col} = calculatePosition(index, elementsPerRow)
       const {top, left} = calculateCoordinates(row, col, width, height, newMargin, margin)
-      const styles = {top: `${top}px`, left: `${left}px`}
-      return (
-        <div
-          className='o-moving-grid__item'
-          key={child.key}
-          style={styles}
-        >{child}</div>
-      )
+      return this.renderChild(child, top, left)
     })
+  }
+  renderChild (child, top = 0, left = 0) {
+    console.log(top, left)
+    const styles = {top: `${top}px`, left: `${left}px`}
+    return (
+      <div
+        className='o-moving-grid__item'
+        key={child.key}
+        style={styles}
+      >{child}</div>
+    )
   }
   render () {
     const {className} = this.props
@@ -45,16 +51,7 @@ class MovingGrid extends Component {
       <div
         ref={node => this._wrapper = node}
         className={classes.join(' ')}
-        >
-        {/*<ReactCSSTransitionGroup
-          component='div'
-          transitionName='a-fade'
-          transitionEnterTimeout={500}
-          transitionLeaveTimeout={300}
-        >*/}
-        {this.parseChildren()}
-        {/*</ReactCSSTransitionGroup>*/}
-      </div>
+      >{this.parseChildren()}</div>
     )
   }
 }
