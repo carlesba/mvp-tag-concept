@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component, Children} from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 class MovingGrid extends Component {
@@ -12,26 +12,24 @@ class MovingGrid extends Component {
   }
   parseChildren () {
     const {children, width, height, margin} = this.props
-    const elementsPerRow = Math.floor(this.state.width / width)
-    return React.Children.map(children, (child, i) => {
-      const position = elementsPerRow
-        ? i / elementsPerRow
-        : 0
-      const column = Math.floor(position)
-      const offsetColumn = column * margin
-      const row = (position - column) * elementsPerRow
-      const offsetRow = row * margin
-      const styles = {
-        left: `${row * width + offsetRow}px`,
-        top: `${column * height + offsetColumn}px`
-      }
-      return (<div className='o-moving-grid__item' key={child.key} style={styles}>{child}</div>)
+    const elementsPerRow = calculateItemsPerRow(width, margin, this.state.width)
+    const newMargin = calculateAdaptativeMargin(this.state.width, width, elementsPerRow)
+    return Children.map(children, (child, index) => {
+      const {row, col} = calculatePosition(index, elementsPerRow)
+      const {top, left} = calculateCoordinates(row, col, width, height, newMargin)
+      const styles = {top: `${top}px`, left: `${left}px`}
+      return (
+        <div
+          className='o-moving-grid__item'
+          key={child.key}
+          style={styles}
+        >{child}</div>
+      )
     })
   }
   render () {
     const {className} = this.props
     const classes = ['o-moving-grid', className]
-    const children = this.parseChildren()
     return (
       <div
         ref={node => this._wrapper = node}
@@ -43,7 +41,7 @@ class MovingGrid extends Component {
           transitionEnterTimeout={500}
           transitionLeaveTimeout={300}
         >*/}
-        {children}
+        {this.parseChildren()}
         {/*</ReactCSSTransitionGroup>*/}
       </div>
     )
@@ -51,6 +49,38 @@ class MovingGrid extends Component {
 }
 MovingGrid.defaultProps = {
   margin: 10
+}
+
+/*
+  m == min margin
+  W == Wraper width
+  w == element's width
+  n == number of elements per row
+  M == new margin to apply to adapt properly
+
+  |        W          |
+   ___________________
+  | m | w | m | w | m |
+
+  W = 2 * w + 3 * m = 2( m + w ) + m = n ( m + w ) + m
+  n = ( W - m ) / ( m + w )
+  M = ( W - w * n ) / ( n + 1 )
+  */
+const calculateItemsPerRow = (width, margin, wrapper) => {
+  return (wrapper - margin) / (margin + width)
+}
+const calculateAdaptativeMargin = (wrapper, width, perRow) => {
+  return (wrapper - width * perRow) / (perRow + 1)
+}
+const calculatePosition = (index, perRow) => {
+  const row = Math.floor(index / perRow)
+  return { row, col: index - row * perRow }
+}
+const calculateCoordinates = (row, col, width, height, margin) => {
+  return {
+    left: (width + margin) * col + margin / 2,
+    top: (height + margin) * row + margin / 2
+  }
 }
 
 export default MovingGrid
