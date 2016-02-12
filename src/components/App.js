@@ -7,10 +7,10 @@ const App = React.createClass({
     return (
       <div className='o-vgrid'>
         <div className='o-floated-tl'>
-          <div className='o-wrapper'><img className='c-logo' src='/assets/logo.svg'/></div>
+          <div className='o-wrapper o-wrapper--big'><img className='c-logo' src='/assets/logo.svg'/></div>
         </div>
         <div className='o-floated-tr'>
-          <div className='o-wrapper'><img src='/assets/user.svg'/></div>
+          <div className='o-wrapper o-wrapper--big'><img src='/assets/user.svg'/></div>
         </div>
         <div className='o-vgrid__fixed'>
           <div className='o-centerer-wrapper'>
