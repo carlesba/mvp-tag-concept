@@ -3,14 +3,10 @@ var webpack = require('webpack')
 
 module.exports = {
   context: __dirname + '/src',
-  entry: {
-    index: [
-      './index'
-    ]
-  },
+  entry: './index',
   output: {
-    path: __dirname + '/dist',
-    filename: '[name].dist.js'
+    path: __dirname + '/demo',
+    filename: 'demo.js'
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
