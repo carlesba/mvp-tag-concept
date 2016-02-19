@@ -55,7 +55,7 @@ class MovingGrid extends Component {
   }
 }
 MovingGrid.defaultProps = {
-  margin: 30
+  margin: 20
 }
 
 /*
