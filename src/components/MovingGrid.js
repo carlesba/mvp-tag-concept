@@ -34,7 +34,6 @@ class MovingGrid extends Component {
     })
   }
   renderChild (child, top = 0, left = 0) {
-    console.log(top, left)
     const styles = {top: `${top}px`, left: `${left}px`}
     return (
       <div
