@@ -26,7 +26,7 @@ const BG_COLORS = [ '#F1F9FA', '#FDF8EC', '#FAF1EA', '#F3F9EF', '#F9F3FA', '#FAE
 const COLORS = ['#73BEC8', '#E4BA3F', '#CB732B', '#89BC62', '#C384C5', '#CB732B']
 
 const randomArrayElements = (arr) => {
-  const randomLength = randomNum(arr.length)
+  const randomLength = randomNum(5)
   return arr.sort(() => randomNum(3) - 1).filter((w, i) => i < randomLength)
 }
 
